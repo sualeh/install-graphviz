@@ -22,7 +22,7 @@ jobs:
 # TEST INSTALL GRAPHVIZ
     - id: install-graphviz
       name: Install Graphviz
-      uses: sualeh/install-graphviz@latest
+      uses: sualeh/install-graphviz@main
 
     - id: test-install-graphviz
       name: Test Install Graphviz
