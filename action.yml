@@ -36,7 +36,7 @@ runs:
         sudo apt-get install graphviz
     - id: check-graphviz
       name: Check Graphviz
-      if: ${{ success() }
+      if: ${{ success() }}
       shell: bash
       run: |
         # Check Graphviz
