@@ -32,6 +32,7 @@ runs:
       shell: bash
       run: |
         # Install Graphviz on Linux
+        sudo apt-get install gsfonts
         sudo apt -qq list fonts-liberation gsfonts
         sudo apt-cache depends graphviz
         sudo apt-get install graphviz
