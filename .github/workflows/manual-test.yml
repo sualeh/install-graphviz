@@ -13,7 +13,11 @@ permissions: read-all
 jobs:
   install:
     name: Install Graphviz
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
 
 # TEST INSTALL GRAPHVIZ
@@ -26,4 +30,5 @@ jobs:
       shell: bash
       run: |
         # Test Install Graphviz
+        echo "Test Graphviz install"
         dot -v
