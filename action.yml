@@ -16,7 +16,6 @@ runs:
         HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true
       run: |
         # Install Graphviz on MacOS
-        # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew info graphviz
         brew install graphviz
     - id: install-graphviz-windows
