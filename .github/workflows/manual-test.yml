@@ -1,0 +1,29 @@
+name: Test Install Graphviz
+
+on:
+  workflow_dispatch:
+  push:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  install:
+    name: Install Graphviz
+    runs-on: macos-latest
+    steps:
+
+# TEST INSTALL GRAPHVIZ
+    - id: install-graphviz
+      name: Install Graphviz
+      uses: sualeh/install-graphviz@v0.0.1
+
+    - id: test-install-graphviz
+      name: Test Install Graphviz
+      shell: bash
+      run: |
+        # Test Install Graphviz
+        dot -v

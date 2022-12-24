@@ -1,0 +1,41 @@
+name: "Install Graphviz"
+description: "Installs Graphviz on various operating systems."
+
+branding:
+  icon: arrow-down-circle
+  color: purple
+
+runs:
+  using: "composite"
+  steps:
+    - id: install-graphviz-macos
+      name: Install Graphviz on MacOS
+      if: runner.os == 'macOS'
+      shell: bash
+      env:
+        HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true
+      run: |
+        # Install Graphviz
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew info graphviz
+        brew install graphviz
+    - id: install-graphviz-windows
+      name: Install Graphviz on Windows
+      if: runner.os == 'Windows'
+      shell: bash
+      run: |
+        # Install Graphviz
+        choco install graphviz
+    - id: install-graphviz-linux
+      name: Install Graphviz on Linux
+      if: runner.os == 'Linux'
+      shell: bash
+      run: |
+        # Install Graphviz
+        sudo apt-get install graphviz
+    - id: check-graphviz
+      name: Check Graphviz
+      shell: bash
+      run: |
+        # Check Graphviz
+        dot -V
