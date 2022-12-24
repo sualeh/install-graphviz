@@ -2,7 +2,6 @@ name: Test Install Graphviz
 
 on:
   workflow_dispatch:
-  # push:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,7 +22,7 @@ jobs:
 # TEST INSTALL GRAPHVIZ
     - id: install-graphviz
       name: Install Graphviz
-      uses: sualeh/install-graphviz@v0.0.1
+      uses: sualeh/install-graphviz@latest
 
     - id: test-install-graphviz
       name: Test Install Graphviz
