@@ -32,6 +32,7 @@ runs:
       shell: bash
       run: |
         # Install Graphviz on Linux
+        sudo apt -qq list fonts-liberation gsfonts
         sudo apt-cache depends graphviz
         sudo apt-get install graphviz
     - id: check-graphviz
@@ -40,4 +41,5 @@ runs:
       shell: bash
       run: |
         # Check Graphviz
-        echo "`dot -V` installed successfully on ${{ runner.os }}"
+        dot -V
+        echo "Installed successfully on ${{ runner.os }}"
