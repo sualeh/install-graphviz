@@ -31,10 +31,12 @@ runs:
       shell: bash
       run: |
         # Install Graphviz on Linux
-        sudo apt-get install gsfonts
+        sudo apt install -y gsfonts
         sudo apt -qq list fonts-liberation gsfonts
-        sudo apt-cache depends graphviz
-        sudo apt-get install graphviz
+        sudo apt install -y graphviz
+        sudo apt -y autoremove --purge
+        sudo apt -y autoclean
+        sudo apt clean
     - id: check-graphviz
       name: Check Graphviz
       if: ${{ success() }}
